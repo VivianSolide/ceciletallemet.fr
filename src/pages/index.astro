@@ -1,32 +1,58 @@
----
-// Component Imports
-import Counter from '../components/Counter.svelte';
+<head>
+	<link rel="stylesheet" href={Astro.resolve("../styles/global.css")} >
+</head>
+<div class="flex justify-end">
+	<div id="slides" class="w-screen">
+		<div class="flex h-screen bg-[#40F99B]" id="1">
+			<p class="m-auto underline">
+				<a href="/lorem-ipsum">
+					Some slide	
+				</a>
+			</p>
+		</div>
+		<div class="flex h-screen bg-[#61707d]" id="2">
+			<p class="m-auto underline">
+				<a href="/lorem-ipsum">
+					Some slide	
+				</a>
+			</p>
+		</div>
+		<div class="flex h-screen bg-[#9D69A3]" id="3">
+			<p class="m-auto underline">
+				<a href="/lorem-ipsum">
+					Some slide	
+				</a>
+			</p>
+		</div>
+		<div class="flex h-screen bg-[#f5fbef]" id="4">
+			<p class="m-auto underline">
+				<a href="/lorem-ipsum">
+					Some slide	
+				</a>
+			</p>
+		</div>
+	</div>
+	<div id="sidebar" class="h-screen pt-[44vh] fixed w-12 bg-[#E85D75] text-center">
+		<ul>
+			<li>
+				<a href="#1">O</a>
+			</li>
+			<li>
+				<a href="#2">O</a>
+			</li>
+			<li>
+				<a href="#3">O</a>
+			</li>
+			<li>
+				<a href="#4">O</a>
+			</li>
+		</ul>
+	</div>
+</div>
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
----
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<style>
-			html,
-			body {
-				font-family: system-ui;
-				margin: 0;
-			}
-			body {
-				padding: 2rem;
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<Counter client:visible>
-				<h1>Hello, Svelte!</h1>
-			</Counter>
-		</main>
-	</body>
-</html>
+<style lang="scss">
+html {
+	scroll-behavior: smooth;
+}
+</style>

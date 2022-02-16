@@ -1,0 +1,42 @@
+---
+const {title} = Astro.props;
+---
+<html>
+  <head>
+		<title>Cecile Tallemet - Lorem ipsum à Paris</title> 
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Lorem ipsum dolor sit amet">
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />   
+    <link rel="stylesheet" href={Astro.resolve("../styles/global.css")} >
+    <style global></style>
+  </head>
+  <body>
+    <!-- Adds a navigation bar to every page. -->
+    <nav class="navbar bg-slate-500">
+      <a href="/">Home</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <!-- slot: your page content will be injected here. -->
+    <slot />
+    <footer class="footer bg-slate-300">
+      <p>Footer - 2022</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+.navbar {
+  color: #fff;
+  padding: 10px;
+  display: flex;
+}
+.navbar > a {
+  color: white;
+  margin: auto;
+}
+.footer {
+  padding: 12px;
+  text-align: center;
+}
+</style>

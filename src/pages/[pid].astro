@@ -1,0 +1,22 @@
+---
+export async function getStaticPaths() {
+    return [
+        {
+            params: {
+                pid: 'lorem-ipsum',
+            },
+        },
+    ];
+}
+import DefaultLayout from '../layouts/default.astro'
+---
+<DefaultLayout>
+    <div class="main">
+    </div>
+</DefaultLayout>
+
+<style>
+.main {
+    height: 100vh;
+}
+</style>

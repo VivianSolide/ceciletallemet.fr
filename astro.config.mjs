@@ -10,4 +10,7 @@
 export default /** @type {import('astro').AstroUserConfig} */ ({
 	// Enable the Svelte renderer to support Svelte components.
 	renderers: ['@astrojs/renderer-svelte'],
+	devOptions: {
+		tailwindConfig: './tailwind.config.cjs'
+	}
 });
