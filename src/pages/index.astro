@@ -1,55 +1,56 @@
+---
+import Slider from '../components/Slider.svelte';
+---
+<script>
+const delay = (n) => new Promise(r => setTimeout(r, n * 1000));
+
+const navigator = (window, totalHeight) => {
+    window.addEventListener('scroll',
+        async (event) => {
+            await delay(0.5);
+            const { scrollY } = window
+            const currentPosition = Math.round((scrollY / totalHeight) * 100)
+
+            if (currentPosition > 12.5 && currentPosition < 25) {
+                document.querySelector('#slide-2').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            if (currentPosition > 37.5 && currentPosition < 50) {
+                document.querySelector('#slide-3').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            if (currentPosition > 62.5 && currentPosition < 75) {
+                document.querySelector('#slide-4').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+        },
+        { passive: true }
+    )
+
+}
+
+window.onload = () => {
+    navigator(window, document.body.scrollHeight)
+}
+
+
+</script>
+
 <head>
 	<link rel="stylesheet" href={Astro.resolve("../styles/global.css")} >
 </head>
-<div class="flex justify-end">
-	<div id="slides" class="w-screen">
-		<div class="flex h-screen bg-[#40F99B]" id="1">
-			<p class="m-auto underline">
-				<a href="/lorem-ipsum">
-					Some slide	
-				</a>
-			</p>
-		</div>
-		<div class="flex h-screen bg-[#61707d]" id="2">
-			<p class="m-auto underline">
-				<a href="/lorem-ipsum">
-					Some slide	
-				</a>
-			</p>
-		</div>
-		<div class="flex h-screen bg-[#9D69A3]" id="3">
-			<p class="m-auto underline">
-				<a href="/lorem-ipsum">
-					Some slide	
-				</a>
-			</p>
-		</div>
-		<div class="flex h-screen bg-[#f5fbef]" id="4">
-			<p class="m-auto underline">
-				<a href="/lorem-ipsum">
-					Some slide	
-				</a>
-			</p>
-		</div>
-	</div>
-	<div id="sidebar" class="h-screen pt-[44vh] fixed w-12 bg-[#E85D75] text-center">
-		<ul>
-			<li>
-				<a href="#1">O</a>
-			</li>
-			<li>
-				<a href="#2">O</a>
-			</li>
-			<li>
-				<a href="#3">O</a>
-			</li>
-			<li>
-				<a href="#4">O</a>
-			</li>
-		</ul>
-	</div>
-</div>
 
+<body>
+	<div class="flex justify-end" id="slider">
+		<Slider />
+	</div>
+</body>
 
 <style lang="scss">
 html {
